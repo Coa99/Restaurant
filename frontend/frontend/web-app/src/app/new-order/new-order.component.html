@@ -1,0 +1,82 @@
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content2">
+
+   
+        <div class="row">
+            <div class="col justify-content-center">
+              <h3 >Articles:</h3>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">*</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Ingredients</th>
+                    <th scope="col">Enter amount</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of articles; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.ingredients}}</td>
+                    <td>
+                        <input [(ngModel)]="item.amount" type="number" name="amount" class="form-control mb-2" id="amount">
+                    </td>
+                    <td><button class="button is-primary" (click)="addToCart(item)">Add to cart</button></td> 
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+            <div  class="row">
+                <div class="col justify-content-center">
+                <h3>Cart items:</h3>
+                <h4 *ngIf="cartItems.length ==0">Add items to cart to see them.</h4>
+                <table class="table table-striped" *ngIf="cartItems.length > 0">
+                  <thead>
+                    <tr>
+                      <th scope="col">*</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of cartItems; let i = index">
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{item.name}}</td>
+                      <td>{{item.price}}</td>
+                      <td><button class="button is-danger" (click)="removeFromCart(item)">Remove from cart</button></td> 
+                    </tr>
+                  </tbody>
+                </table>
+
+            </div>
+          
+               
+            </div>    
+            <div class="row">
+                <div class="col">
+                    <label>Add comment</label>
+                    <input [(ngModel)]="comment" type="text" name="comment" class="form-control mb-2" id="comment">
+                </div>
+                <div class="col">
+                    <label>Add address</label>
+                    <input [(ngModel)]="address" type="text" name="address" class="form-control mb-2" id="address">
+                </div>
+            </div>
+<div class="row">
+    <div class="col justify-content-center">
+    <h5>Delivery price: 150 din</h5> </div>
+</div>
+    <div calss="row">
+    <button class="button is-primary" (click)="createOrder()">Create order</button></div>
+   
+             
+    
+</div>

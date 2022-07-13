@@ -1,0 +1,52 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a >
+            <img src="../../favicon.ico">
+          </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item">
+            <div class="buttons">
+              <button class="button is-primary is-rounded" [routerLink]="['profile']" routerLinkActive="router-link-active" >Profile
+              </button>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <button class="button is-primary is-rounded" [disabled]= "user.status!='Approved'" [routerLink]="['order']" routerLinkActive="router-link-active" >Select order
+              </button>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <button class="button is-primary is-rounded" [disabled]= "user.status!='Approved'" [routerLink]="['counter']" routerLinkActive="router-link-active" >Active order
+              </button>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <button class="button is-primary is-rounded" [disabled]= "user.status!='Approved'" [routerLink]="['history']" routerLinkActive="router-link-active">History
+              </button>
+            </div>
+          </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <button class="button is-primary is-rounded" [routerLink]="['logout']" routerLinkActive="router-link-active">Log out
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+<router-outlet>
+</router-outlet>
