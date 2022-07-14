@@ -18,6 +18,7 @@ export class AddArticleComponent implements OnInit {
   }
 
   save(){
+    if(this.name ==='' || this.price === 0 || this.ingredients ==='') return
     const article = {
       id: undefined,
       name: this.name,

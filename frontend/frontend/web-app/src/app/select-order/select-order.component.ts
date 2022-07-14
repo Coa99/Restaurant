@@ -42,6 +42,11 @@ export class SelectOrderComponent implements OnInit {
     console.log(order)
     this.orderService.update(order).subscribe({
       next: res => {
+        if(res.body===null){
+          alert("Order is already taken.")
+          order.delivererId = 0;
+          return
+        }
         localStorage.removeItem('order')
         localStorage.setItem("order", JSON.stringify(res.body));
         this.router.navigate([`${JSON.parse(localStorage.getItem('currentUser') || '{}')?.role}/counter`])

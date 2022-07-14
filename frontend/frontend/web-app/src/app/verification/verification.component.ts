@@ -50,13 +50,12 @@ export class VerificationComponent implements OnInit {
 
   sendEmail(user: User, msg: string){
     const email = {
-      service_id: 'service_0zr3xqf',
-      template_id: 'template_v01tzzv',
-      user_id: 'GoukyNyAqww5Qnhk_',
+      service_id: 'service_m9undqt',
+      template_id: 'template_7hdkrtt',
+      user_id: 'zzyGnN_XcTHRb2tFd',
       template_params: {
         'to_name': user.username,
         'to_email': user.email,
-        'subject': 'Registration',
         'message': msg
       }
     };

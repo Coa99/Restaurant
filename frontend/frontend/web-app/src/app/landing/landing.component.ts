@@ -36,6 +36,7 @@ export class LandingComponent implements OnInit {
   }
 
   login() {
+    if(this.email ==='' || this.password ==='')return
     this.authService.login(this.email, this.password).subscribe({
       next: res => {
         

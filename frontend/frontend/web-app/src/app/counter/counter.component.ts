@@ -31,10 +31,6 @@ export class CounterComponent implements OnInit {
       return "Bon apetit!"
     setTimeout(this.resetValue, 1000)
     this.counter = Math.floor((moment(this.order.endTime).valueOf() - moment().valueOf()) / 1000)
-    let minutes = this.counter /60
-    if(minutes > 1){
-      return minutes > 1 && minutes < 2 ? `> ${Math.floor(minutes)} minute` : `in ${Math.floor(minutes)} minutes`
-    }
     return this.counter
   }
 
@@ -42,7 +38,4 @@ export class CounterComponent implements OnInit {
     this.counter -= 1
   }
 
-  history(){
-    this.router.navigate([`${JSON.parse(localStorage.getItem('currentUser') || '{}')?.role}/history`])
-  }
 }

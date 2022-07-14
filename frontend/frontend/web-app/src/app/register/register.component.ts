@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
 
   register(){
     if(this.password !== this.confirmPassword) return
+    if(this.username === '', this.name === '', this.surname === '', this.address === '', this.email === '', this.password === '', this.confirmPassword === '') return
     let user = {
       username: this.username,
       email: this.email,

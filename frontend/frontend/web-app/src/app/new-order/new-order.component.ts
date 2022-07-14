@@ -16,7 +16,7 @@ export class NewOrderComponent implements OnInit {
   cartItems: Article[] = []
   comment: string = ''
   address: string = ''
-  totalPrice: number = 0
+  totalPrice: number = 150
   constructor(private articleService : ArticleService, private orderService : OrderService, private router: Router) { }
 
   ngOnInit(): void {
@@ -36,19 +36,22 @@ export class NewOrderComponent implements OnInit {
       ingredients: item.ingredients
     }
     this.cartItems.push(article)
+    this.totalPrice += article.price
   }
 
   removeFromCart(item: Article){
     this.cartItems = this.cartItems.filter(a => a.id !== item.id)
+    this.totalPrice -= item.price
+    if(this.cartItems.length ===0)
+      this.totalPrice = 150
   }
 
   createOrder(){
-    this.cartItems.forEach(a => { this.totalPrice += a.price })
     const order: Order = {
       id: undefined,
       address: this.address,
       comment: this.comment,
-      price: this.totalPrice + 150,
+      price: this.totalPrice,
       customerId: JSON.parse(localStorage.getItem('currentUser') || '{}')?.id,
       delivererId: 0,
       startTime: moment().format(),
